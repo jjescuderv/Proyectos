@@ -46,7 +46,7 @@ def getModa():
       if i not in mostCommon :
         mostCommon.append(i)
 
-  return str(mostCommon)
+  return jsonify(mostCommon)
 
 @app.route("/data", methods=['POST'])
 def postV():
