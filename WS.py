@@ -63,7 +63,7 @@ def deleteV(fecha):
     if fecha == m['fecha'][:10] :
       found = True
       dataCapture.remove(m)
-  return 'Borrado con éxito.' if found else 'Elemento no encontrado.'
+  return jsonify(dataCapture) if found else 'Elemento no encontrado.'
 
 @app.route("/data/<string:fecha>", methods=['PUT'])
 def putV(fecha):
@@ -72,6 +72,6 @@ def putV(fecha):
     if fecha == m['fecha'][:10] :
       found = True
       m['valor'] = 1
-  return 'Actualizado.\nSe cambió el valor a 1.' if found else 'Elemento no encontrado.'
+  return jsonify(dataCapture) if found else 'Elemento no encontrado.'
 
 app.run(port=5000, debug=True)
